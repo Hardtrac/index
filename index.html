@@ -48,17 +48,13 @@ document.getElementById('login-form').addEventListener('submit', function(event)
   var password = document.getElementById('password').value;
 
   // Check brand name and password
-  if (brandName === 'vinod' && password === '1234') {
-    // Construct URL with filter for Vinod and remove other filters
-    var url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B:B&filter_view=filterBrand&fpos=B5&fvid=' + brandName + '&vq=' + encodeURIComponent('B="vinod"');
-
+  if (password === '1234') {
+    // Send request to Google Apps Script web app
+    var url = 'https://script.google.com/macros/s/your_web_app_script_id/exec?brand=' + encodeURIComponent(brandName);
     window.location.href = url;
-  } else if (brandName === 'vinod') {
-    // If brand name is Vinod but password is incorrect
-    alert('Invalid password for Vinod. Please try again.');
   } else {
-    // For any other brand name
-    alert('Invalid brand name or password. Please try again.');
+    // For incorrect password
+    alert('Invalid password. Please try again.');
   }
 });
 </script>

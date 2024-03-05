@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://t4.ftcdn.net/jpg/01/19/11/55/360_F_119115529_mEnw3lGpLdlDkfLgRcVSbFRuVl6sMDty.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #login-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  #company-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+<div id="login-box">
+  <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
+  <h2>Login</h2>
+  <form id="login-form">
+    <input type="text" id="brand-name" placeholder="Enter brand name" required><br><br>
+    <input type="password" id="password" placeholder="Enter password" required><br><br>
+    <button type="submit">Login</button>
+  </form>
+</div>
+
+<script>
+document.getElementById('login-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var brandName = document.getElementById('brand-name').value;
+  var password = document.getElementById('password').value;
+
+  // Check brand name and password
+  if (brandName === 'Vinod' && password === '1234') {
+    // Open Google Sheets file
+    window.open('https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772');
+  } else if (brandName === 'OtherBrand' && password === 'OtherPassword') {
+    // Open Google Sheets file for OtherBrand
+    window.open('https://docs.google.com/spreadsheets/d/other-file-id/edit');
+  } else {
+    alert('Invalid brand name or password. Please try again.');
+  }
+});
+</script>
+</body>
+</html>

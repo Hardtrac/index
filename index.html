@@ -44,14 +44,18 @@
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
-  var brandName = document.getElementById('brand-name').value;
+  var brandName = document.getElementById('brand-name').value.toLowerCase(); // Convert brand name to lowercase for case-insensitive comparison
   var password = document.getElementById('password').value;
 
   // Check brand name and password
   if (brandName === 'vinod' && password === '1234') {
     // Redirect to Vinod's file
     window.location.href = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772';
+  } else if (brandName === 'vinod') {
+    // If brand name is Vinod but password is incorrect
+    alert('Invalid password for Vinod. Please try again.');
   } else {
+    // For any other brand name
     alert('Invalid brand name or password. Please try again.');
   }
 });

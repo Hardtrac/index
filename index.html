@@ -44,16 +44,15 @@
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
-  var brandName = document.getElementById('brand-name').value.toLowerCase(); // Convert brand name to lowercase for case-insensitive comparison
+  var brandName = document.getElementById('brand-name').value.toLowerCase();
+  console.log("Brand Name:", brandName); // Add this line for debugging
   var password = document.getElementById('password').value;
 
   // Check brand name and password
   if (password === '1234') {
-    // Send request to Google Apps Script web app
-    var url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772brand=' + encodeURIComponent(brandName);
+    var url = 'https://script.google.com/macros/s/https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772/exec?brand=' + encodeURIComponent(brandName);
     window.location.href = url;
   } else {
-    // For incorrect password
     alert('Invalid password. Please try again.');
   }
 });

@@ -48,12 +48,9 @@ document.getElementById('login-form').addEventListener('submit', function(event)
   var password = document.getElementById('password').value;
 
   // Check brand name and password
-  if (brandName === 'Vinod' && password === '1234') {
-    // Open Google Sheets file
-    window.open('https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772');
-  } else if (brandName === 'OtherBrand' && password === 'OtherPassword') {
-    // Open Google Sheets file for OtherBrand
-    window.open('https://docs.google.com/spreadsheets/d/other-file-id/edit');
+  if (brandName === 'vinod' && password === '123456789') {
+    // Redirect to Vinod's file
+    window.location.href = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772';
   } else {
     alert('Invalid brand name or password. Please try again.');
   }

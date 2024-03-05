@@ -50,7 +50,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
   // Check brand name and password
   if (password === '1234') {
     // Send request to Google Apps Script web app
-    var url = 'https://script.google.com/macros/s/your_web_app_script_id/exec?brand=' + encodeURIComponent(brandName);
+    var url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772brand=' + encodeURIComponent(brandName);
     window.location.href = url;
   } else {
     // For incorrect password

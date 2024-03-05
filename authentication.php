@@ -18,21 +18,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 }
-    <?php
-// Assuming you have a MySQL database set up with a table called 'data' containing a 'brand' column
 
-// Connect to the database
-$servername = "index.html";
-$username = "vinod";
-$password = "1234";
-$dbname = "vinod";
+// Connect to the MySQL database
+$servername = "localhost"; // Change to your MySQL server
+$username = "vinod"; // Change to your MySQL username
+$password = "1234"; // Change to your MySQL password
+$dbname = "vinod"; // Change to your MySQL database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
 // Query to select data for the vinod brand
@@ -41,14 +39,12 @@ $result = $conn->query($sql);
 
 // Display data
 if ($result->num_rows > 0) {
-  // Output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "Brand: " . $row["brand"]. " - Other data: " . $row["other_data"]. "<br>";
-  }
+    // Output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "Brand: " . $row["brand"]. " - Other data: " . $row["other_data"]. "<br>";
+    }
 } else {
-  echo "0 results";
+    echo "0 results";
 }
 $conn->close();
-?>
-
 ?>

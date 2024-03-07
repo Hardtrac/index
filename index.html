@@ -31,8 +31,11 @@
     padding: 20px 0;
   }
   #company-logo {
-    max-width: 150px;
+    max-width: 250px; /* Increase the max-width to make the image bigger */
     margin-bottom: 20px;
+  }
+  #company-logo-link {
+    display: block; /* Make the anchor tag a block-level element to cover the whole logo */
   }
   #login-box {
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background color for the login box */
@@ -66,7 +69,9 @@
 <body>
 <div id="blur-background"></div> <!-- Container for the blurred background -->
 <div id="header">
-  <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
+  <a id="company-logo-link" href="https://hardtrac.co.in/?v=6c8403f93333" target="_blank"> <!-- Anchor tag to link to another website -->
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo"> <!-- Company Logo Image -->
+  </a>
   <h2>Hardtrac Ecommerce Data and Analytics Dashboard</h2>
 </div>
 <div id="login-box">

@@ -23,30 +23,27 @@
     max-width: 150px;
     margin-bottom: 20px;
     position: absolute;
-    top: 10px; /* Adjust as needed */
+    top: -40px; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
   }
 
-  .background {
+  /*.background {
     background-image: url('https://hardtrac.co.in/wp-content/uploads/2023/03/Speaker-1.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
     overflow: hidden;
     position: relative;
-    z-index: 0; /* Ensure the background is behind everything */
-  }
+  }*/
 
   .background .images {
     display: flex;
     position: absolute;
     top: 0;
     left: 0;
-    width: 500%; /* Adjust based on the number of images */
     animation: scrollBackground 20s linear infinite;
-    z-index: -1; /* Ensure the background images are behind everything */
   }
 
   .background .images img {

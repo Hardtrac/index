@@ -12,11 +12,11 @@
     background-image: url('https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg'); /* Background image for the body */
     background-size: cover;
     background-position: center;
+    filter: blur(5px); /* Apply blur effect to the background image */
+    overflow: hidden; /* Hide overflow to prevent blur from bleeding outside body */
   }
   #header {
-    background-image: url('https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg'); /* Background image for the header */
-    background-size: cover;
-    background-position: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background color for the header */
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -26,9 +26,7 @@
     margin-bottom: 20px;
   }
   #login-box {
-    background-image: url('https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg'); /* Background image for the login box */
-    background-size: cover;
-    background-position: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background color for the login box */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -37,7 +35,7 @@
     max-width: 300px;
   }
   #login-box img {
-    max-width: 100px; /* Adjust the size of the image as needed */
+    max-width: 100px;
     margin-bottom: 20px;
   }
 </style>

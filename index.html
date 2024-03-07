@@ -1,118 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-  .header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: relative; /* Ensure positioning of logo */
-  }
-
-  #company-logo {
-    max-width: 150px;
-    margin-bottom: 20px;
-    position: absolute;
-    top: -40px; /* Adjust as needed */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-  }
-
-  /*.background {
-    background-image: url('https://hardtrac.co.in/wp-content/uploads/2023/03/Speaker-1.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-  }*/
-
-  .background .images {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    animation: scrollBackground 20s linear infinite;
-  }
-
-  .background .images img {
-    width: calc(100% / 5);
-    height: auto;
-  }
-
-  @keyframes scrollBackground {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-400%);
-    }
-  }
-
-  #login-box {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="header">
-  <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
-  <h1>Welcome to E-commerce Dashboard</h1>
-</div>
-<div class="background">
-  <div class="images">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/Speaker-1.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/04/sewing-machine.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/water-purifier.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/001-768x768.png" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/Fan.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/iron.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/71khQ4agUaL._SL1500_-768x768.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/10/51vT0OWjErL-1000x1000-1-768x768.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/31z4cqh6qZL-150x150-1.jpg" alt="Background Image">
-  </div>
-  <div id="login-box">
-    <h2>Login</h2>
-    <form id="login-form">
-      <input type="text" id="brand-name" placeholder="Enter brand name" required><br><br>
-      <input type="password" id="password" placeholder="Enter password" required><br><br>
-      <button type="submit">Login</button>
-    </form>
-  </div>
-</div>
-
-<script>
-document.getElementById('login-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  var brandName = document.getElementById('brand-name').value.toLowerCase();
-  console.log("Brand Name:", brandName);
-  var password = document.getElementById('password').value;
-
-  if (password === '1234') {
-    var url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772/exec?brand=' + encodeURIComponent(brandName);
-    window.location.href = url;
-  } else {
-    alert('Invalid password. Please try again.');
-  }
-});
-</script>
+    <div class="container">
+        <form id="loginForm" action="dashboard.html">
+            <div class="logo">
+                <img src="company_logo.png" alt="Company Logo">
+            </div>
+            <div class="welcome-message">
+                <h2>Welcome to E-commerce Dashboard</h2>
+            </div>
+            <div class="credentials">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

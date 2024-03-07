@@ -12,8 +12,17 @@
     background-image: url('https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg'); /* Background image for the body */
     background-size: cover;
     background-position: center;
-    filter: blur(5px); /* Apply blur effect to the background image */
     overflow: hidden; /* Hide overflow to prevent blur from bleeding outside body */
+  }
+  #blur-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://t4.ftcdn.net/jpg/04/60/71/01/360_F_460710131_YkD6NsivdyYsHupNvO3Y8MPEwxTAhORh.jpg'); /* Background image to be blurred */
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px); /* Apply blur effect */
+    z-index: -1; /* Ensure the blurred background is behind other content */
   }
   #header {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background color for the header */
@@ -41,6 +50,7 @@
 </style>
 </head>
 <body>
+<div id="blur-background"></div> <!-- Container for the blurred background -->
 <div id="header">
   <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
   <h2>Hardtrac Ecommerce Data and Analytics Dashboard</h2>

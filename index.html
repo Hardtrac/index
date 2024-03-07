@@ -9,6 +9,7 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
   }
 
   .header {
@@ -19,29 +20,30 @@
   }
 
   .background {
-    background-image: url('https://hardtrac.co.in/wp-content/uploads/2023/03/Speaker-1.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    overflow: hidden; /* Hide overflow to prevent scrollbars */
     position: relative;
+    overflow: hidden;
+    height: 100vh;
   }
 
-  .background img {
+  .background .images {
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 200%; /* Double the height to create continuous scroll effect */
-    animation: scrollBackground 20s linear infinite; /* Adjust speed as needed */
+    animation: scrollBackground 20s linear infinite;
+  }
+
+  .background .images img {
+    width: calc(100% / 5); /* Arrange in 5 columns */
+    height: auto;
   }
 
   @keyframes scrollBackground {
-    from {
-      transform: translateY(0);
+    0% {
+      transform: translateX(0);
     }
-    to {
-      transform: translateY(-50%);
+    100% {
+      transform: translateX(-400%); /* Move 400% of total width */
     }
   }
 
@@ -51,18 +53,18 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-    position: relative; /* Ensure it stays above the background */
-    z-index: 1; /* Ensure it stays above the background */
+    position: relative;
+    z-index: 1;
   }
 
   #company-logo {
     max-width: 150px;
     margin-bottom: 20px;
     position: absolute;
-    top: calc(50% + 60px); /* Adjust this value to position the logo below the header */
+    top: calc(50% + 60px);
     left: 50%;
     transform: translateX(-50%);
-    z-index: 2; /* Ensure it stays above the background */
+    z-index: 2;
   }
 </style>
 </head>
@@ -71,8 +73,15 @@
   <h1>Welcome to E-commerce Dashboard</h1>
 </div>
 <div class="background">
-  <img src="https://hardtrac.co.in/wp-content/uploads/2023/04/sewing-machine.jpg" alt="Background Image">
-  <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/water-purifier.jpg" alt="Background Image">
+  <div class="images">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/Speaker-1.jpg" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/04/sewing-machine.jpg" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/water-purifier.jpg" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/Speaker-1.jpg" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/04/sewing-machine.jpg" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/water-purifier.jpg" alt="Background Image">
+    <!-- Repeat more images as needed -->
+  </div>
   <div id="login-box">
     <h2>Login</h2>
     <form id="login-form">
@@ -87,10 +96,9 @@
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
   var brandName = document.getElementById('brand-name').value.toLowerCase();
-  console.log("Brand Name:", brandName); // Add this line for debugging
+  console.log("Brand Name:", brandName);
   var password = document.getElementById('password').value;
 
-  // Check brand name and password
   if (password === '1234') {
     var url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772/exec?brand=' + encodeURIComponent(brandName);
     window.location.href = url;

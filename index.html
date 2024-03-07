@@ -1,43 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://e1.pxfuel.com/desktop-wallpaper/581/154/desktop-wallpaper-backgrounds-for-login-page-login-page.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #login-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  #company-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" class="logo">
-    <h1>Welcome to E-commerce Dashboard</h1>
-    <form id="loginForm">
-      <div class="input-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" required>
-      </div>
-      <div class="input-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" required>
-      </div>
-      <button type="submit">Login</button>
-    </form>
-  </div>
+<div id="login-box">
+  <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
+  <h2>Welcome to Ecommerce Dashboard</h2> <!-- Welcome message added here -->
+  <h2>Login</h2>
+  <form id="login-form">
+    <input type="text" id="brand-name" placeholder="Enter brand name" required><br><br>
+    <input type="password" id="password" placeholder="Enter password" required><br><br>
+    <button type="submit">Login</button>
+  </form>
+</div>
 
-  <script>
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // prevent form submission
-      
-      // Check username and password (for demo, hardcoded values)
-      var username = document.getElementById("username").value;
-      var password = document.getElementById("password").value;
-      
-      if (username === "your_username" && password === "your_password") {
-        // Redirect to Google Excel Sheet link (for demo, redirect to Google homepage)
-        window.location.href = "https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772";
-      } else {
-        alert("Invalid username or password. Please try again.");
-      }
-    });
-  </script>
+<script>
+document.getElementById('login-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var brandName = document.getElementById('brand-name').value.toLowerCase();
+  console.log("Brand Name:", brandName); // Add this line for debugging
+  var password = document.getElementById('password').value;
+
+  // Check brand name and password
+  if (password === '1234') {
+    var url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772/exec?brand=' + encodeURIComponent(brandName);
+    window.location.href = url;
+  } else {
+    alert('Invalid password. Please try again.');
+  }
+});
+</script>
 </body>
 </html>

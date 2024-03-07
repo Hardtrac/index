@@ -9,7 +9,6 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Hide horizontal scrollbar */
   }
 
   .header {
@@ -17,12 +16,26 @@
     color: white;
     text-align: center;
     padding: 10px 0;
+    position: relative; /* Ensure positioning of logo */
+  }
+
+  #company-logo {
+    max-width: 150px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: -10px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
   }
 
   .background {
-    position: relative;
-    overflow: hidden;
+    background-image: url('https://hardtrac.co.in/wp-content/uploads/2023/03/Speaker-1.jpg');
+    background-size: cover;
+    background-position: center;
     height: 100vh;
+    overflow: hidden;
+    position: relative;
   }
 
   .background .images {
@@ -34,7 +47,7 @@
   }
 
   .background .images img {
-    width: calc(100% / 5); /* Arrange in 5 columns */
+    width: calc(100% / 5);
     height: auto;
   }
 
@@ -43,7 +56,7 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-400%); /* Move 400% of total width */
+      transform: translateX(-400%);
     }
   }
 
@@ -56,20 +69,11 @@
     position: relative;
     z-index: 1;
   }
-
-  #company-logo {
-    max-width: 150px;
-    margin-bottom: 20px;
-    position: absolute;
-    top: calc(50% + 60px);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-  }
 </style>
 </head>
 <body>
 <div class="header">
+  <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
   <h1>Welcome to E-commerce Dashboard</h1>
 </div>
 <div class="background">
@@ -77,10 +81,13 @@
     <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/Speaker-1.jpg" alt="Background Image">
     <img src="https://hardtrac.co.in/wp-content/uploads/2023/04/sewing-machine.jpg" alt="Background Image">
     <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/water-purifier.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/Speaker-1.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/04/sewing-machine.jpg" alt="Background Image">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/water-purifier.jpg" alt="Background Image">
-    <!-- Repeat more images as needed -->
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.jpg" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/001-768x768.png" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/Fan.jpg" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/iron.jpg" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/71khQ4agUaL._SL1500_-768x768.jpg" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/10/51vT0OWjErL-1000x1000-1-768x768.jpg" alt="Background Image">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/31z4cqh6qZL-150x150-1.jpg" alt="Background Image">
   </div>
   <div id="login-box">
     <h2>Login</h2>
@@ -91,7 +98,7 @@
     </form>
   </div>
 </div>
-<img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
+
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();

@@ -59,7 +59,7 @@
     max-width: 150px;
     margin-bottom: 20px;
     position: absolute;
-    top: -90px; /* Adjust this value as needed */
+    top: calc(50% + 60px); /* Adjust this value to position the logo below the header */
     left: 50%;
     transform: translateX(-50%);
     z-index: 2; /* Ensure it stays above the background */
@@ -73,7 +73,6 @@
 <div class="background">
   <img src="https://e1.pxfuel.com/desktop-wallpaper/581/154/desktop-wallpaper-backgrounds-for-login-page-login-page.jpg" alt="Background Image">
   <div id="login-box">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
     <h2>Login</h2>
     <form id="login-form">
       <input type="text" id="brand-name" placeholder="Enter brand name" required><br><br>
@@ -82,7 +81,7 @@
     </form>
   </div>
 </div>
-
+<img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();

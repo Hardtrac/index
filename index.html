@@ -7,21 +7,17 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    background-image: url('https://e1.pxfuel.com/desktop-wallpaper/581/154/desktop-wallpaper-backgrounds-for-login-page-login-page.jpg');
-    background-size: cover;
-    background-position: center;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  }
+  #header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
   }
   #company-logo {
     max-width: 150px;
-    margin-bottom: 20px;
-  }
-  #welcome-message {
     margin-bottom: 20px;
   }
   #login-box {
@@ -30,12 +26,16 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin: 20px auto;
+    max-width: 300px;
   }
 </style>
 </head>
 <body>
-<img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
-<h2 id="welcome-message">Welcome to Ecommerce Dashboard</h2>
+<div id="header">
+  <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
+  <h2>Welcome to Ecommerce Dashboard</h2>
+</div>
 <div id="login-box">
   <h2>Login</h2>
   <form id="login-form">

@@ -7,23 +7,54 @@
 <style>
   body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .background {
     background-image: url('https://e1.pxfuel.com/desktop-wallpaper/581/154/desktop-wallpaper-backgrounds-for-login-page-login-page.jpg');
     background-size: cover;
     background-position: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+    position: relative;
   }
+
+  .background img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%; /* Double the height to create continuous scroll effect */
+    animation: scrollBackground 20s linear infinite; /* Adjust speed as needed */
+  }
+
+  @keyframes scrollBackground {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
+    }
+  }
+
   #login-box {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: relative; /* Ensure it stays above the background */
+    z-index: 1; /* Ensure it stays above the background */
   }
+
   #company-logo {
     max-width: 150px;
     margin-bottom: 20px;
@@ -31,14 +62,20 @@
 </style>
 </head>
 <body>
-<div id="login-box">
-  <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
-  <h2>Login</h2>
-  <form id="login-form">
-    <input type="text" id="brand-name" placeholder="Enter brand name" required><br><br>
-    <input type="password" id="password" placeholder="Enter password" required><br><br>
-    <button type="submit">Login</button>
-  </form>
+<div class="header">
+  <h1>Welcome to E-commerce Dashboard</h1>
+</div>
+<div class="background">
+  <img src="https://e1.pxfuel.com/desktop-wallpaper/581/154/desktop-wallpaper-backgrounds-for-login-page-login-page.jpg" alt="Background Image">
+  <div id="login-box">
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
+    <h2>Login</h2>
+    <form id="login-form">
+      <input type="text" id="brand-name" placeholder="Enter brand name" required><br><br>
+      <input type="password" id="password" placeholder="Enter password" required><br><br>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 </div>
 
 <script>

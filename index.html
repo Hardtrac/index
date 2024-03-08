@@ -75,16 +75,28 @@
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
-  var brandName = "vinod"; // Change the default brand name here
-  console.log("Brand Name:", brandName); // Add this line for debugging
+  var brandName = document.getElementById('brand-name').value.toLowerCase();
   var password = document.getElementById('password').value;
 
-  // Check brand name and password
-  if (password === '1234') {
-    var url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772/exec?brand=' + encodeURIComponent(brandName);
+  // Object to store multiple users and passwords
+  var users = {
+    "vinod": "1234",
+    "orange": "1234567"
+    // Add more users and passwords here as needed
+  };
+
+  // Check if the entered brand name exists in the users object and verify password
+  if (users.hasOwnProperty(brandName) && users[brandName] === password) {
+    // Redirect to corresponding Excel sheet based on brand name
+    var url = '';
+    if (brandName === 'vinod') {
+      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772/exec?brand=' + encodeURIComponent(brandName);
+    } else if (brandName === 'orange') {
+      url = 'https://docs.google.com/spreadsheets/d/1IEcm3-LflHGFGvsV1RONc0_IxyrCEbybSjROGyaJ4Wk/edit';
+    }
     window.location.href = url;
   } else {
-    alert('Invalid password. Please try again.');
+    alert('Invalid login credentials. Please try again.');
   }
 });
 </script>

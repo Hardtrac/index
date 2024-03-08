@@ -90,7 +90,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     // Redirect to corresponding Excel sheet based on brand name
     var url = '';
     if (brandName === 'vinod') {
-      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772/exec?brand=' + encodeURIComponent(brandName);
+      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/gviz/tq?tqx=out:csv&gid=2037114772&range=B5:B/exec?brand=' + encodeURIComponent(brandName);
     } else if (brandName === 'orange') {
       url = 'https://docs.google.com/spreadsheets/d/1IEcm3-LflHGFGvsV1RONc0_IxyrCEbybSjROGyaJ4Wk/edit';
     }
@@ -101,18 +101,6 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     alert('Invalid login credentials. Please try again.');
   }
 });
-
-// Apply filter to Excel sheet based on brand name
-function applyFilter(brandName) {
-  var sheetUrl = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772'; // URL of the Google Sheets to apply the filter
-
-  // Define the range of the filter based on brand name
-  var filterRange = 'B:B'; // Assume the filter range starts from column B
-
-  // Construct the URL to apply the filter
-   sheetUrl = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/gviz/tq?tqx=out:csv&gid=2037114772&range=' + encodeURIComponent(filterRange) + '&tq=' + encodeURIComponent('SELECT * WHERE B = "' + brandName + '"');
-
-  // Redirect to the URL to apply the filter
-  window.location.href = sheetUrl;
-}
 </script>
+</body>
+</html>

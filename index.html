@@ -90,12 +90,10 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     // Redirect to corresponding Excel sheet based on brand name
     var url = '';
     if (brandName === 'vinod') {
-      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/gviz/tq?tqx=out:csv&gid=2037114772&range=B5:B/exec?brand=' + encodeURIComponent(brandName);
+      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772/exec?brand=' + encodeURIComponent(brandName);
     } else if (brandName === 'orange') {
       url = 'https://docs.google.com/spreadsheets/d/1IEcm3-LflHGFGvsV1RONc0_IxyrCEbybSjROGyaJ4Wk/edit';
     }
-    
-    // Redirect to the corresponding Google Sheets URL
     window.location.href = url;
   } else {
     alert('Invalid login credentials. Please try again.');

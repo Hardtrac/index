@@ -99,14 +99,11 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 });
 
 function applyFilter(brandName) {
-  var sheetUrl = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303';
-  
+  var baseUrl = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303';
+  var filterParam = '&fbrand=' + brandName;
+
   // Construct URL with filter query parameter for Vinod or Orange brand
-  if (brandName === 'vinod') {
-    sheetUrl += '&fbrand=vinod';
-  } else if (brandName === 'orange') {
-    sheetUrl += '&fbrand=orange';
-  }
+  var sheetUrl = baseUrl + filterParam;
   
   // Redirect to the constructed URL
   window.location.href = sheetUrl;

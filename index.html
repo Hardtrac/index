@@ -72,11 +72,11 @@
   </form>
 </div>
 
-<script>
-document.getElementById('login-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  var brandName = document.getElementById('brand-name').value.toLowerCase();
-  var password = document.getElementById('password').value;
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var brandName = document.getElementById('brand-name').value.toLowerCase();
+      google.script.run.onLogin(brandName);
 
   // Object to store multiple users and passwords
   var users = {

@@ -90,9 +90,9 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     // Redirect to corresponding Excel sheet based on brand name
     var url = '';
     if (brandName === 'vinod') {
-      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772/exec?brand=' + encodeURIComponent(brandName);
+      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B';
     } else if (brandName === 'orange') {
-      url = 'https://docs.google.com/spreadsheets/d/1IEcm3-LflHGFGvsV1RONc0_IxyrCEbybSjROGyaJ4Wk/edit';
+      url = 'https://docs.google.com/spreadsheets/d/1IEcm3-LflHGFGvsV1RONc0_IxyrCEbybSjROGyaJ4Wk/edit#range=B5:B';
     }
     window.location.href = url;
   } else {

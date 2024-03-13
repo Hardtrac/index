@@ -76,6 +76,7 @@
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
   var brandName = document.getElementById('brand-name').value.toLowerCase();
+  google.script.run.onLogin(brandName);
   var password = document.getElementById('password').value;
 
   // Object to store multiple users and passwords

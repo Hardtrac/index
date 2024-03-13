@@ -86,10 +86,17 @@ document.getElementById('login-form').addEventListener('submit', function(event)
   };
 
   // Check if the entered brand name exists in the users object and verify password
-  if (users.hasOwnProperty(brandName) && users[brandName] === password) {
-    // Apply filter based on the logged-in brand
-    applyFilter(brandName);
+  if (users.hasOwnProperty(brandName)) {
+    if (users[brandName] === password) {
+      // Apply filter based on the logged-in brand
+      console.log("Login successful. Brand:", brandName);
+      applyFilter(brandName);
+    } else {
+      console.log("Invalid password for brand:", brandName);
+      alert('Invalid login credentials. Please try again.');
+    }
   } else {
+    console.log("Brand not found:", brandName);
     alert('Invalid login credentials. Please try again.');
   }
 });
@@ -105,9 +112,9 @@ function applyFilter(brandName) {
   }
   
   // Redirect to the constructed URL
+  console.log("Redirecting to:", sheetUrl);
   window.location.href = sheetUrl;
 }
-});
 </script>
 </body>
 </html>

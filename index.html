@@ -75,7 +75,7 @@
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
-  var brandName = document.getElementById('brand-name').value.toLowerCase();
+  var brandName = document.getElementById('brand-name').value.trim().toLowerCase();
   var password = document.getElementById('password').value;
 
   // Object to store multiple users and passwords
@@ -88,8 +88,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
   // Check if the entered brand name exists in the users object and verify password
   if (users.hasOwnProperty(brandName) && users[brandName] === password) {
     // Call Google Apps Script web app to filter data
-    // Call Google Apps Script web app to filter data
-var url = 'https://script.google.com/macros/s/1vRe_ChcMhwksQwfq7FJKr6clOOHCNFqnJlAfM8VRDO1emwxiaPiG8cr5/exec?brandName=' + encodeURIComponent(brandName);
+    var url = 'https://script.google.com/macros/s/1vRe_ChcMhwksQwfq7FJKr6clOOHCNFqnJlAfM8VRDO1emwxiaPiG8cr5/exec?brandName=' + encodeURIComponent(brandName);
     fetch(url)
       .then(response => {
         if (!response.ok) {

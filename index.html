@@ -87,8 +87,15 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
   // Check if the entered brand name exists in the users object and verify password
   if (users.hasOwnProperty(brandName) && users[brandName] === password) {
-    // Construct URL with filter query parameter for Vinod brand
-    var url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303&fbrand=' + encodeURIComponent(brandName);
+    // Construct URL with filter query parameter for Vinod or Orange brand
+    var url = '';
+    if (brandName === 'vinod') {
+      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303&fbrand=vinod';
+    } else if (brandName === 'orange') {
+      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303&fbrand=orange';
+    }
+    
+    // Redirect to the constructed URL
     window.location.href = url;
   } else {
     alert('Invalid login credentials. Please try again.');

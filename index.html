@@ -75,7 +75,7 @@
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
-  var brandName = document.getElementById('brand-name').value.trim().toLowerCase();
+  var brandName = document.getElementById('brand-name').value.toLowerCase();
   var password = document.getElementById('password').value;
 
   // Object to store multiple users and passwords
@@ -86,29 +86,18 @@ document.getElementById('login-form').addEventListener('submit', function(event)
   };
 
   // Check if the entered brand name exists in the users object and verify password
-  // Call Google Apps Script web app to filter data
-var brandName = document.getElementById('brand-name').value.trim().toLowerCase();
-if (brandName !== '') {
-  var url = 'https://script.google.com/macros/s/1vRe_ChcMhwksQwfq7FJKr6clOOHCNFqnJlAfM8VRDO1emwxiaPiG8cr5/exec?brandName=' + encodeURIComponent(brandName);
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      // Redirect to corresponding Excel sheet based on brand name
-      if (brandName === 'vinod') {
-        window.location.href = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit';
-      } else if (brandName === 'orange') {
-        window.location.href = 'https://docs.google.com/spreadsheets/d/1IEcm3-LflHGFGvsV1RONc0_IxyrCEbybSjROGyaJ4Wk/edit';
-      }
-    })
-    .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
-} else {
-  alert('Please enter a brand name.');
-}
-
+  if (users.hasOwnProperty(brandName) && users[brandName] === password) {
+    // Redirect to corresponding Excel sheet based on brand name
+    var url = '';
+    if (brandName === 'vinod') {
+      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772/exec?brand=' + encodeURIComponent(brandName);
+    } else if (brandName === 'orange') {
+      url = 'https://docs.google.com/spreadsheets/d/1IEcm3-LflHGFGvsV1RONc0_IxyrCEbybSjROGyaJ4Wk/edit';
+    }
+    window.location.href = url;
+  } else {
+    alert('Invalid login credentials. Please try again.');
+  }
 });
 </script>
 </body>

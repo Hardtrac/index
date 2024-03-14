@@ -105,21 +105,21 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 });
 
 function applyFilter(brandName) {
-  if (!brandName) {
-    console.error("Brand name is undefined or empty.");
-    return;
-  }
+  console.log("Brand Name:", brandName); // Check if brandName is correct
 
-  var scriptUrl = 'https://script.google.com/macros/s/1vRe_ChcMhwksQwfq7FJKr6clOOHCNFqnJlAfM8VRDO1emwxiaPiG8cr5/exec?brandName=' + encodeURIComponent(brandName);
+  // Constructing the base URL for Google Sheets
+  var baseUrl = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772'; // Update with your Google Sheets URL
+
+  // Constructing the filter parameter
+  var filterParam = '&range=A5:Z4308&fbrand=' + brandName; // Update with your filter criteria, this assumes your data range is from A5 to Z4308
+
+  // Constructing the final URL with the filter
+  var sheetUrl = baseUrl + filterParam;
+  console.log("Sheet URL:", sheetUrl); // Check the constructed URL
   
-  fetch(scriptUrl)
-    .then(response => response.json())
-    .then(data => {
-      console.log("Filtered Data:", data);
-      // Use the filtered data as needed
-    })
-    .catch(error => console.error('Error:', error));
+  // Redirecting to the filtered Google Sheets URL
+  window.location.href = sheetUrl;
 }
 </script>
 </body>
-</html>
+</html> 

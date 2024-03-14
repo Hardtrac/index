@@ -105,13 +105,16 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 });
 
 function applyFilter(brandName) {
-  console.log("Brand Name:", brandName); // Check if brandName is correct
-  var baseUrl = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772'; // Update with your Google Sheets URL
-  var filterParam = '&range=B5:B4308&fbrand=' + brandName; // Update with your filter criteria
-  console.log("Filter Parameter:", filterParam); // Check if filterParam is correct
-  var sheetUrl = baseUrl + filterParam;
-  console.log("Sheet URL:", sheetUrl); // Check the constructed URL
-  window.location.href = sheetUrl;
+  var scriptUrl = 'https://script.google.com/macros/s/1vRe_ChcMhwksQwfq7FJKr6clOOHCNFqnJlAfM8VRDO1emwxiaPiG8cr5/exec?brandName=' + encodeURIComponent(brandName);
+  var scriptUrl = baseUrl + '?brandName=' + encodeURIComponent(brandName);
+  
+  fetch(scriptUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log("Filtered Data:", data);
+      // Use the filtered data as needed
+    })
+    .catch(error => console.error('Error:', error));
 }
 </script>
 </body>

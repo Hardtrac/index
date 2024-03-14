@@ -75,7 +75,7 @@
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
-  var brandName = document.getElementById('brand-name').value.toLowerCase();
+  var brandName = document.getElementById('brand-name').value.toLowerCase(); // Convert to lowercase
   var password = document.getElementById('password').value;
 
   // Object to store multiple users and passwords
@@ -88,11 +88,13 @@ document.getElementById('login-form').addEventListener('submit', function(event)
   // Check if the entered brand name exists in the users object and verify password
   if (users.hasOwnProperty(brandName) && users[brandName] === password) {
     // Construct URL with filter query parameter for Vinod or Orange brand
-    var url = '';
+    var url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303';
+    
+    // Append filter query parameter based on brand name
     if (brandName === 'vinod') {
-      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303&fbrand=vinod';
-    } else if (brandName === 'orange') {
-      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303&fbrand=orange';
+      url += '&fbrand=vinod';
+    } else {
+      url += '&fbrand=' + encodeURIComponent(brandName); // For other brands
     }
     
     // Redirect to the constructed URL
@@ -103,4 +105,4 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 });
 </script>
 </body>
-</html> 
+</html>

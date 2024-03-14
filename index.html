@@ -80,8 +80,8 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
   // Object to store multiple users and passwords
   var users = {
-    "vinod": "1234",
-    "orange": "1234567"
+    "Vinod": "1234",
+    "Orange": "1234567"
     // Add more users and passwords here as needed
   };
 
@@ -100,14 +100,11 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
 function applyFilter(brandName) {
   console.log("Brand Name:", brandName); // Check if brandName is correct
-  // Construct URL with filter query parameter for the selected brand
   var baseUrl = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772'; // Update with your Google Sheets URL
   var filterParam = '&range=B5:B4308&fbrand=' + brandName; // Update with your filter criteria
   console.log("Filter Parameter:", filterParam); // Check if filterParam is correct
-  // Construct the final URL
   var sheetUrl = baseUrl + filterParam;
   console.log("Sheet URL:", sheetUrl); // Check the constructed URL
-  // Redirect to the constructed URL
   window.location.href = sheetUrl;
 }
 </script>

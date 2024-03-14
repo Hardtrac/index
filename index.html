@@ -105,8 +105,12 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 });
 
 function applyFilter(brandName) {
+  if (!brandName) {
+    console.error("Brand name is undefined or empty.");
+    return;
+  }
+
   var scriptUrl = 'https://script.google.com/macros/s/1vRe_ChcMhwksQwfq7FJKr6clOOHCNFqnJlAfM8VRDO1emwxiaPiG8cr5/exec?brandName=' + encodeURIComponent(brandName);
-  var scriptUrl = baseUrl + '?brandName=' + encodeURIComponent(brandName);
   
   fetch(scriptUrl)
     .then(response => response.json())

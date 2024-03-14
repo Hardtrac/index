@@ -75,19 +75,25 @@
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
-  var brandName = document.getElementById('brand-name').value.toLowerCase();
+  var brandName = document.getElementById('brand-name').value.toLowerCase(); // Convert to lowercase
   var password = document.getElementById('password').value;
 
   // Object to store multiple users and passwords
   var users = {
-    "Vinod": "1234",
-    "Orange": "1234567"
+    "vinod": "1234", // Convert to lowercase
+    "orange": "1234567" // Convert to lowercase
     // Add more users and passwords here as needed
   };
 
+  // Convert keys of the users object to lowercase
+  var lowercaseUsers = {};
+  for (var key in users) {
+    lowercaseUsers[key.toLowerCase()] = users[key];
+  }
+
   // Check if the entered brand name exists in the users object and verify password
-  if (users.hasOwnProperty(brandName)) {
-    if (users[brandName] === password) {
+  if (lowercaseUsers.hasOwnProperty(brandName)) {
+    if (lowercaseUsers[brandName] === password) {
       // Apply filter based on the logged-in brand
       applyFilter(brandName);
     } else {

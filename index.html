@@ -75,51 +75,32 @@
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
-  var brandName = document.getElementById('brand-name').value.toLowerCase(); // Convert to lowercase
+  var brandName = document.getElementById('brand-name').value.toLowerCase();
   var password = document.getElementById('password').value;
 
   // Object to store multiple users and passwords
   var users = {
-    "vinod": "1234", // Convert to lowercase
-    "orange": "1234567" // Convert to lowercase
+    "vinod": "1234",
+    "orange": "1234567"
     // Add more users and passwords here as needed
   };
 
-  // Convert keys of the users object to lowercase
-  var lowercaseUsers = {};
-  for (var key in users) {
-    lowercaseUsers[key.toLowerCase()] = users[key];
-  }
-
   // Check if the entered brand name exists in the users object and verify password
-  if (lowercaseUsers.hasOwnProperty(brandName)) {
-    if (lowercaseUsers[brandName] === password) {
-      // Apply filter based on the logged-in brand
-      applyFilter(brandName);
-    } else {
-      alert('Invalid login credentials. Please try again.');
+  if (users.hasOwnProperty(brandName) && users[brandName] === password) {
+    // Construct URL with filter query parameter for Vinod or Orange brand
+    var url = '';
+    if (brandName === 'vinod') {
+      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303&fbrand=vinod';
+    } else if (brandName === 'orange') {
+      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303&fbrand=orange';
     }
+    
+    // Redirect to the constructed URL
+    window.location.href = url;
   } else {
     alert('Invalid login credentials. Please try again.');
   }
 });
-
-function applyFilter(brandName) {
-  console.log("Brand Name:", brandName); // Check if brandName is correct
-
-  // Constructing the base URL for Google Sheets
-  var baseUrl = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772'; // Update with your Google Sheets URL
-
-  // Constructing the filter parameter
-  var filterParam = '&range=B5:B4308&fbrand=' + brandName; // Update with your filter criteria, this assumes your data range is from A5 to Z4308
-
-  // Constructing the final URL with the filter
-  var sheetUrl = baseUrl + filterParam;
-  console.log("Sheet URL:", sheetUrl); // Check the constructed URL
-  
-  // Redirecting to the filtered Google Sheets URL
-  window.location.href = sheetUrl;
-}
 </script>
 </body>
 </html> 

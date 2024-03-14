@@ -77,24 +77,14 @@ document.getElementById('login-form').addEventListener('submit', function(event)
   var brandName = document.getElementById('brand-name').value.toLowerCase();
   var password = document.getElementById('password').value;
 
-  // Object to store multiple users and passwords
   var users = {
     "vinod": "1234",
     "orange": "1234567"
     // Add more users and passwords here as needed
   };
 
-  // Check if the entered brand name exists in the users object and verify password
   if (users.hasOwnProperty(brandName) && users[brandName] === password) {
-    // Construct URL with filter query parameter for Vinod or Orange brand
-    var url = '';
-    if (brandName === 'vinod') {
-      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303&fbrand=vinod';
-    } else if (brandName === 'orange') {
-      url = 'https://docs.google.com/spreadsheets/d/1iazMmordxyAdktHm8RzSSp1CDsMLG8rR4q6avD9342E/edit#gid=2037114772&range=B5:B4303&fbrand=orange';
-    }
-    
-    // Redirect to the constructed URL
+    var url = 'https://script.google.com/macros/s/AKfycbzL8mhMSKVmMC9JHB-g_tqApxOi-RHBiuT7mYGSzYMFjO0Y7vxQQuFi11RBuWvsQJ6P/exec'; // Replace with your web app URL
     window.location.href = url;
   } else {
     alert('Invalid login credentials. Please try again.');

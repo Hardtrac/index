@@ -64,7 +64,7 @@
 </div>
 <div id="login-box">
   <img src="https://i.pinimg.com/474x/73/69/bc/7369bce73ff84156957c3499790b84d5.jpg" alt="Person Image">
-  <form id="login-form" action="https://script.google.com/macros/s/AKfycbxvBax36EoqnZLEn-U50NOhdc8mIYf1rMJiVsm4K_AyXLNugYDD2_8k_AgHP3oUM7fXsw/exec" method="POST">
+  <form id="login-form" action="https://script.google.com/macros/s/AKfycbxAnIT1CdczEqcnMXZzR09Cab5FIsr840DgAxyatLE5WZmfrw7D3jEOA2z8pQTuGhl5TQ/exec" method="POST">
   <input type="text" id="brand-name" name="brandName" placeholder="Enter brand name" required><br><br>
   <input type="password" id="password" placeholder="Enter password" required><br><br>
   <button type="submit">Login</button>
@@ -84,7 +84,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
   if (brandName === "vinod" && users.hasOwnProperty(brandName) && users[brandName] === password) {
     // Submit the brand name to the Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbxvBax36EoqnZLEn-U50NOhdc8mIYf1rMJiVsm4K_AyXLNugYDD2_8k_AgHP3oUM7fXsw/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxAnIT1CdczEqcnMXZzR09Cab5FIsr840DgAxyatLE5WZmfrw7D3jEOA2z8pQTuGhl5TQ/exec', {
       method: 'POST',
       body: JSON.stringify({ brandName: brandName }),
       headers: {

@@ -88,7 +88,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     // Call Google Apps Script function asynchronously
     google.script.run.withSuccessHandler(function() {
       // Redirect to another page after successful execution of the Google Apps Script function
-      window.location.href = 'https://example.com/redirect-page';
+      window.location.href = 'https://docs.google.com/spreadsheets/d/1RPof2kBySxna7PNnvO5axQU9LkUPkE9glRwTS4py1mQ/edit#gid=2037114772';
     }).openExcelSheetWithFilter(brandName);
   } else {
     alert('Invalid login credentials. Please try again.');

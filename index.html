@@ -82,7 +82,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     "orange": "1234567"
   };
 
-  if (users.hasOwnProperty(brandName) && users[brandName] === password) {
+  if (brandName === "vinod" && users.hasOwnProperty(brandName) && users[brandName] === password) {
     // Submit the brand name to the Google Apps Script
     fetch('https://script.google.com/macros/s/AKfycbxvBax36EoqnZLEn-U50NOhdc8mIYf1rMJiVsm4K_AyXLNugYDD2_8k_AgHP3oUM7fXsw/exec', {
       method: 'POST',

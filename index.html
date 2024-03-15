@@ -82,7 +82,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     "orange": "1234567"
   };
 
-  if (brandName === "vinod" && users.hasOwnProperty(brandName) && users[brandName] === password) {
+  if ((brandName === "vinod" || brandName === "orange") && users.hasOwnProperty(brandName) && users[brandName] === password) {
     // Submit the brand name to the Google Apps Script
     fetch('https://script.google.com/macros/s/AKfycbyTYAMrBuEgXKxXfXLTvfkNkvh4xukgm9Y-KqTG_L55BXYL-w6jQbnVXRNQgEiTEI7cJw/exec', {
       method: 'POST',
@@ -91,6 +91,13 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         'Content-Type': 'application/json'
       }
     })
+    .then(response => {
+        // Handle response
+    })
+    .catch(error => {
+        // Handle error
+    });
+}
     .then(response => {
       if (response.ok) {
         // Redirect to the Google Sheets URL

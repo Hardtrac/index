@@ -100,11 +100,8 @@ document.getElementById('login-form').addEventListener('submit', function(event)
       }
     })
     .catch(error => {
-      console.error('Error:', error);
-    });
-  } else {
-    alert('Invalid login credentials. Please try again.');
-  }
+  console.error('Fetch Error:', error);
+  alert('An error occurred while processing your request. Please try again later.');
 });
 </script> 
 </body>

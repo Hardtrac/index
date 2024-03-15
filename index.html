@@ -71,10 +71,6 @@
   </form>
 </div>
 
-<!-- Include Google Apps Script client-side library -->
-<script src="https://apis.google.com/js/api.js" defer></script>
-
-<!-- Your existing script -->
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
@@ -88,13 +84,12 @@ document.getElementById('login-form').addEventListener('submit', function(event)
   };
 
   if (users.hasOwnProperty(brandName) && users[brandName] === password) {
-      // Redirect to another page after successful execution of the Google Apps Script function
-      window.location.href = 'https://docs.google.com/spreadsheets/d/1RPof2kBySxna7PNnvO5axQU9LkUPkE9glRwTS4py1mQ/edit#gid=2037114772';
-    ).openExcelSheetWithFilter(brandName);
+    // Redirect to another page
+    window.location.href = 'https://docs.google.com/spreadsheets/d/1RPof2kBySxna7PNnvO5axQU9LkUPkE9glRwTS4py1mQ/edit#gid=2037114772';
   } else {
     alert('Invalid login credentials. Please try again.');
   }
 });
-</script>  
+</script> 
 </body>
 </html>

@@ -71,6 +71,10 @@
   </form>
 </div>
 
+<!-- Include Google Apps Script client-side library -->
+<script src="https://apis.google.com/js/api.js"></script>
+
+<!-- Your existing script -->
 <script>
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault();
@@ -93,6 +97,6 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     alert('Invalid login credentials. Please try again.');
   }
 });
-</script>
+</script>  
 </body>
 </html>

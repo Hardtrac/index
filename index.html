@@ -64,7 +64,7 @@
 </div>
 <div id="login-box">
   <img src="https://i.pinimg.com/474x/73/69/bc/7369bce73ff84156957c3499790b84d5.jpg" alt="Person Image">
-  <form id="login-form" action="https://script.google.com/macros/s/AKfycbxFLFpAbMH4xd2mbta3R1srtgMTZHPflZWpCOQxqfbM8l_noDBMwrtGmLSIJPu6sgOT8g/exec" method="POST">
+  <form id="login-form" action="https://script.google.com/macros/s/AKfycbxTRL9oJW0dK0v_H4rc2S6pbyMbTgaxprr6R5PoxcHf6q8LXW6jnUkuF3eaLj_IFV60tg/exec" method="POST">
   <input type="text" id="brand-name" name="brandName" placeholder="Enter brand name" required><br><br>
   <input type="password" id="password" placeholder="Enter password" required><br><br>
   <button type="submit">Login</button>
@@ -82,9 +82,9 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     "orange": "1234567"
   };
 
-  if (brandName === "vinod" && users.hasOwnProperty(brandName) && users[brandName] === password) {
-    // Submit the brand name to the Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbxFLFpAbMH4xd2mbta3R1srtgMTZHPflZWpCOQxqfbM8l_noDBMwrtGmLSIJPu6sgOT8g/exec', {
+  if (users.hasOwnProperty(brandName) && users[brandName] === password) {
+    // Submit the form data
+    fetch('https://script.google.com/macros/s/AKfycbxTRL9oJW0dK0v_H4rc2S6pbyMbTgaxprr6R5PoxcHf6q8LXW6jnUkuF3eaLj_IFV60tg/exec', {
       method: 'POST',
       body: JSON.stringify({ brandName: brandName }),
       headers: {
@@ -93,16 +93,18 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     })
     .then(response => {
       if (response.ok) {
-        // Redirect to the Google Sheets URL
+        // Redirect to the filtered Google Sheets
         window.location.href = 'https://docs.google.com/spreadsheets/d/1RPof2kBySxna7PNnvO5axQU9LkUPkE9glRwTS4py1mQ/edit#gid=2037114772';
       } else {
         throw new Error('Network response was not ok.');
       }
     })
     .catch(error => {
-  console.error('Fetch Error:', error);
-  alert('An error occurred while processing your request. Please try again later.');
+      console.error('Fetch Error:', error);
+      alert('An error occurred while processing your request. Please try again later.');
+    });
+  } else {
+    alert('Invalid brand name or password');
+  }
 });
-</script> 
-</body>
-</html>
+</script>  

@@ -1,108 +1,114 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
+<title>Login Page</title>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('https://c8.alamy.com/comp/T1T4D4/seamless-pattern-with-kitchen-appliances-in-lines-background-for-design-cooking-T1T4D4.jpg');
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-  }
-  #blur-background {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://c8.alamy.com/comp/T1T4D4/seamless-pattern-with-kitchen-appliances-in-lines-background-for-design-cooking-T1T4D4.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: blur(5px);
-    z-index: -1;
-  }
-  #header {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-  }
-  #company-logo {
-    max-width: 250px;
-    margin-bottom: 20px;
-  }
-  #company-logo-link {
-    display: block;
-  }
-  #login-box {
-    background-image: url('https://c8.alamy.com/comp/T1T4D4/seamless-pattern-with-kitchen-appliances-in-lines-background-for-design-cooking-T1T4D4.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    margin: 20px auto;
-    max-width: 300px;
-    position: relative;
-  }
-  #login-box img {
-    max-width: 100px;
-    margin-bottom: 20px;
-  }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa; /* Set a light background color */
+        background-image: url('https://e0.pxfuel.com/wallpapers/654/367/desktop-wallpaper-light-green-plain-page-1.jpg'); /* Set your background image URL */
+        background-size: cover;
+        background-position: center;
+    }
+    #header {
+        text-align: center;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9); /* Set a semi-transparent white background for better readability */
+        border-bottom: 1px solid #ddd;
+    }
+    #company-logo {
+        width: auto; /* Set the width to auto to maintain the original image aspect ratio */
+        height: 100px; /* Adjust the height as needed */
+        display: block; /* Ensure the image is displayed as a block element */
+        margin: 0 auto; /* Center the image horizontally */
+    }
+    #login-box {
+        width: 300px;
+        margin: 50px auto;
+        background-color: rgba(255, 255, 255, 0.9); /* Set a semi-transparent white background */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    }
+    #login-box img {
+        width: 250px;
+        height: 50px;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 20px;
+    }
+    input[type="text"],
+    input[type="password"],
+    button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
 </style>
 </head>
 <body>
-<div id="blur-background"></div> 
 <div id="header">
-  <a id="company-logo-link" href="https://hardtrac.co.in/?v=6c8403f93333" target="_blank">
-    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
-  </a>
-  <h2>Hardtrac Ecommerce Data and Analytics Dashboard</h2>
+    <a id="company-logo-link" href="https://hardtrac.co.in/?v=6c8403f93333" target="_blank">
+        <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo" id="company-logo">
+    </a>
+    <h2>Hardtrac Ecommerce Data and Analytics Dashboard</h2>
 </div>
 <div id="login-box">
-  <img src="https://i.pinimg.com/474x/73/69/bc/7369bce73ff84156957c3499790b84d5.jpg" alt="Person Image">
-  <form id="login-form" action="https://script.google.com/macros/s/AKfycbwtnD5iaG1q9ckD5dR2d4mxdHlYxFtMjJKjbryjY4gnZG5UE42TfxjJCaoFi-wSNX4XsA/exec" method="POST">
-  <input type="text" id="brand-name" name="brandName" placeholder="Enter brand name" required><br><br>
-  <input type="password" id="password" placeholder="Enter password" required><br><br>
-  <button type="submit">Login</button>
-</form>
+    <img src="https://hardtrac.co.in/wp-content/uploads/2023/03/images.png" alt="Company Logo">
+    <form id="login-form">
+        <input type="text" id="brand-name" name="brandName" placeholder="Enter brand name" required><br><br>
+        <input type="password" id="password" placeholder="Enter password" required><br><br>
+        <input type="checkbox" id="show-password">
+        <label for="show-password">Show Password</label><br><br>
+        <button type="submit">Login</button>
+    </form>
 </div>
 
 <script>
-document.getElementById('login-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  var brandName = document.getElementById('brand-name').value.toLowerCase();
-  var password = document.getElementById('password').value;
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var brandName = document.getElementById("brand-name").value;
+        var password = document.getElementById("password").value;
 
-  var users = {
-    "vinod": "1234",
-    "orange": "1234567"
-  };
+        // Simulate authentication
+        // Replace this with actual backend authentication logic
+        if (brandName === "bajaj" && password === "bajaj@1234") {
+            window.location.href = "https://docs.google.com/spreadsheets/d/1ObXhTHp64buixWHJ6ZqxVg5wa90ikDw18Oz5BkcGfLA/edit#gid=105666129";
+        } else if (brandName === "itel" && password === "itel@1234") {
+            window.location.href = "https://docs.google.com/spreadsheets/d/1IEcm3-LflHGFGvsV1RONc0_IxyrCEbybSjROGyaJ4Wk/edit#gid=1602082000";
+        } else if (brandName === "lenovo" && password === "lenovo@1234") {
+            window.location.href = "https://docs.google.com/spreadsheets/d/1BzTro92E1TYV2FUVmTKL1a8bI3gGI2vthDq3IsyCAGM/edit#gid=1128293075";
+        } else {
+            alert("Invalid brand name or password");
+        }
+    });
 
-  if (brandName === "vinod" && users.hasOwnProperty(brandName) && users[brandName] === password) {
-    // Submit the brand name to the Google Apps Script
-    fetch('https://script.google.com/macros/s/AKfycbwtnD5iaG1q9ckD5dR2d4mxdHlYxFtMjJKjbryjY4gnZG5UE42TfxjJCaoFi-wSNX4XsA/exec', {
-      method: 'POST',
-      body: JSON.stringify({ brandName: brandName }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
-      if (response.ok) {
-        // Redirect to the Google Sheets URL
-        window.location.href = 'https://docs.google.com/spreadsheets/d/1RPof2kBySxna7PNnvO5axQU9LkUPkE9glRwTS4py1mQ/edit#gid=2037114772';
-      } else {
-        throw new Error('Network response was not ok.');
-      }
-    })
-    .catch(error => {
-  console.error('Fetch Error:', error);
-  alert('An error occurred while processing your request. Please try again later.');
-});
-</script> 
+    // Toggle password visibility
+    document.getElementById("show-password").addEventListener("change", function() {
+        var passwordInput = document.getElementById("password");
+        if (this.checked) {
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
+        }
+    });
+</script>
 </body>
 </html>

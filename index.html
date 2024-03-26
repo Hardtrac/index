@@ -6,92 +6,127 @@
 <title>Login Page</title>
 <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f9fa; /* Set a light background color */
-      background-image: url('https://e0.pxfuel.com/wallpapers/654/367/desktop-wallpaper-light-green-plain-page-1.jpg'); /* Set your background image URL */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat; /* Prevent background image from repeating */
-  }
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            background-image: url('https://e0.pxfuel.com/wallpapers/654/367/desktop-wallpaper-light-green-plain-page-1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
 
-  #header {
-      text-align: center;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.9); /* Set a semi-transparent white background for better readability */
-      border-bottom: 1px solid #ddd;
-  }
+        @media (max-width: 600px) {
+            body {
+                background-image: url('https://e0.pxfuel.com/wallpapers/654/367/desktop-wallpaper-light-green-plain-page-1.jpg'); /* New mobile background image */
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+        }
+        #header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            background-color: white;
+            z-index: 2;
+        }
 
-  #company-logo {
-      width: auto; /* Set the width to auto to maintain the original image aspect ratio */
-      height: 100px; /* Adjust the height as needed */
-      display: block; /* Ensure the image is displayed as a block element */
-      margin: 0 auto; /* Center the image horizontally */
-  }
+        #description-points {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
 
-  #login-box {
-      width: 300px;
-      margin: 50px auto;
-      background-color: rgba(255, 255, 255, 0.9); /* Set a semi-transparent white background */
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-  }
+        #company-logo {
+            width: auto;
+            height: 100px;
+            display: block;
+            margin: 0 auto;
+        }
 
-  #login-box img {
-      width: 250px;
-      height: 50px;
-      margin: 0 auto;
-      display: block;
-      margin-bottom: 20px;
-  }
+        #login-box {
+            width: 350px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
 
-  input[type="text"],
-  input[type="password"],
-  button {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-      border-radius: 5px;
-  }
+        #login-box img {
+            width: 250px;
+            height: 60px;
+            margin: 0 auto;
+            display: block;
+            margin-bottom: 20px;
+        }
 
-  button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      cursor: pointer;
-  }
+        input[type="text"],
+        input[type="password"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
 
-  button:hover {
-      background-color: #45a049;
-  }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
 
-  /* Adjustments for mobile devices */
-  @media (max-width: 600px) {
-      #login-box {
-        margin-top: 100px;
-        width: 60%;
-      }
-      #header {
-          padding: 10px;
-      }
-      #company-logo {
-          height: 60px;
-      }
-      #login-box img {
-          width: 150px;
-          height: 40px;
-          margin-bottom: 10px;
-      }
-      h2 {
-          font-size: 1.5em; /* Adjust the font size for smaller screens */
-      }
-  }
-</style>
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #description-points ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #description-points ul li {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 600px) {
+            #login-box {
+                margin-top: 50px;
+                width: 60%;
+            }
+
+            #header {
+                padding: 10px;
+            }
+
+            #company-logo {
+                height: 60px;
+            }
+
+            #login-box img {
+                width: 150px;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
 </head>
 <body>
 <div id="header">
@@ -108,8 +143,19 @@
         <input type="checkbox" id="show-password">
         <label for="show-password">Show Password</label><br><br>
         <button type="submit">Login</button>
+		<p style="margin-top: 20px;"><strong>Note :</strong> Data uploading will be done daily between 10am and 11.30am. During this time, the reports might not show accurate data.*</p>
     </form>
 </div>
+
+<!-- Description points centered on the page -->
+    <div id="description-points">
+        <h3>*Disclaimer:-</h3>
+        <ul>
+            <li><strong>Amazon :-</strong> Sales report Amazon might not match with actual sale because Amazon MTR report is generated 24 to 48 hours back dated.</li>
+            <li><strong>Flipkart :-</strong> Sales report Flipkart might not match with an actual sale, because Flipkart is generating 2 days back dated data, so date wise data is subject to change.</li>
+            <li>The above data is approximation and indicative for Sales analysis and for updated final Data for Any schemes / Support / Backhand related calculations please contact with Brand Champ.</li>
+        </ul>
+    </div>
 
 <script>
     document.getElementById("login-form").addEventListener("submit", function(event) {
